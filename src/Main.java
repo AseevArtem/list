@@ -6,20 +6,19 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Scanner scanner1 = new Scanner(System.in);
-        Scanner scanner2 = new Scanner(System.in);
-        Scanner scanner3 = new Scanner(System.in);
         List<String> list = new ArrayList<>();
 
 
 
         while (true) {
             System.out.println("Выберите операцию: \n1 - Добавить \n2 - Показать \n3 - Удалить \n4 - Поиск");
-            int inputoperation = scanner.nextInt();
+
+            String input = scanner.nextLine();
+            int inputoperation = Integer.parseInt(input);
 
             if (inputoperation == 1) {
                 System.out.println("Какую покупку хотите добавить?");
-                String pokupka = scanner1.nextLine();
+                String pokupka = scanner.nextLine();
                 list.add(pokupka);
                 System.out.println("Итого в списке покупок: " + list.size());
 
@@ -37,7 +36,7 @@ public class Main {
                     System.out.println((i + 1) + " " + list.get(i));
                 }
                 System.out.println("Какую хотите удалить? Введите номер или название.");
-                String delete = scanner2.nextLine();
+                String delete = scanner.nextLine();
                 try {
                     int deleteNumber = Integer.parseInt(delete);
                     System.out.println("Покупка " + list.get(deleteNumber - 1) + " удалена, список покупок: ");
@@ -56,7 +55,7 @@ public class Main {
             }
             if (inputoperation == 4) {
                 System.out.println("Введите текст для поиска");
-                String search = scanner3.nextLine();
+                String search = scanner.nextLine();
                 System.out.println("Найдено:");
                 String queryLower = search.toLowerCase();
 
