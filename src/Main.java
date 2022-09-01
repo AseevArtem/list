@@ -9,7 +9,6 @@ public class Main {
         List<String> list = new ArrayList<>();
 
 
-
         while (true) {
             System.out.println("Выберите операцию: \n1 - Добавить \n2 - Показать \n3 - Удалить \n4 - Поиск");
 
@@ -18,39 +17,30 @@ public class Main {
 
             if (inputoperation == 1) {
                 System.out.println("Какую покупку хотите добавить?");
-                String pokupka = scanner.nextLine();
-                list.add(pokupka);
+                String purchase = scanner.nextLine();
+                list.add(purchase);
                 System.out.println("Итого в списке покупок: " + list.size());
 
             }
             if (inputoperation == 2) {
                 System.out.println("Список покупок: ");
-                for (int i = 0; i < list.size(); i++) {
-                    System.out.println((i + 1) + " " + list.get(i));
-
-                }
+                shoppingList(list);
             }
             if (inputoperation == 3) {
                 System.out.println("Список покупок: ");
-                for (int i = 0; i < list.size(); i++) {
-                    System.out.println((i + 1) + " " + list.get(i));
-                }
+                shoppingList(list);
                 System.out.println("Какую хотите удалить? Введите номер или название.");
                 String delete = scanner.nextLine();
                 try {
                     int deleteNumber = Integer.parseInt(delete);
                     System.out.println("Покупка " + list.get(deleteNumber - 1) + " удалена, список покупок: ");
                     list.remove(deleteNumber - 1);
-                    for (int i = 0; i < list.size(); i++) {
-                        System.out.println((i + 1) + " " + list.get(i));
-                    }
+                    shoppingList(list);
 
                 } catch (NumberFormatException e) {
                     list.remove(delete);
                     System.out.println("Покупка " + delete + " удалена, список покупок: ");
-                    for (int i = 0; i < list.size(); i++) {
-                        System.out.println((i + 1) + " " + list.get(i));
-                    }
+                    shoppingList(list);
                 }
             }
             if (inputoperation == 4) {
@@ -66,6 +56,12 @@ public class Main {
                     }
                 }
             }
+        }
+    }
+
+    private static void shoppingList(List ArrayList) {
+        for (int i = 0; i < ArrayList.size(); i++) {
+            System.out.println((i + 1) + " " + ArrayList.get(i));
         }
     }
 }
