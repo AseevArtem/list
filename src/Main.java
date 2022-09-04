@@ -59,7 +59,7 @@ public class Main {
         }
     }
 
-    private static void shoppingList(List ArrayList) {
+    private static void shoppingList(List<String> ArrayList) {
         for (int i = 0; i < ArrayList.size(); i++) {
             System.out.println((i + 1) + " " + ArrayList.get(i));
         }
